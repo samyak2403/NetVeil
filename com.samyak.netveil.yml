@@ -13,7 +13,6 @@ AutoName: NetVeil
 
 RepoType: git
 Repo: https://github.com/samyak2403/NetVeil.git
-Binaries: https://github.com/samyak2403/NetVeil/releases/download/v%v/app-release.apk
 
 Builds:
   - versionName: 1.0.1
@@ -31,8 +30,6 @@ Builds:
     scandelete:
       - app/release/native-debug-symbols.zip
     ndk: r28c
-
-AllowedAPKSigningKeys: 112e863c7f6d6f48ed050cb6d3f5fb11566d04eac9516dfd4f93333b3abd6c16
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
