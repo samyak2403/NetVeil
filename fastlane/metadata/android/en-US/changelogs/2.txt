@@ -4,3 +4,4 @@ NetVeil v1.0.1 (Build 2):
 - Disable Google Play dependency metadata blobs for full F-Droid / IzzyOnDroid compliance
 - Dual Proxy Mode support (SOCKS4/5 and HTTP CONNECT) on port 1080
 - Complete Fastlane store metadata and localization
+
