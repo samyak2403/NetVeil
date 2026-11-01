@@ -4,26 +4,12 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: Samyak Kamble
 AuthorEmail: samyakkamble6659@gmail.com
-AuthorWebSite: https://github.com/samyak2403
 WebSite: https://github.com/samyak2403/NetVeil
 SourceCode: https://github.com/samyak2403/NetVeil
 IssueTracker: https://github.com/samyak2403/NetVeil/issues
 Changelog: https://github.com/samyak2403/NetVeil/blob/master/RELEASE_NOTES.md
 
 AutoName: NetVeil
-Summary: Modern Android DPI circumvention engine & SOCKS5/VPN client
-Description: |-
-  NetVeil is a modern, lightweight, privacy-respecting Android application designed
-  to bypass Deep Packet Inspection (DPI) and Internet censorship without routing traffic
-  through external VPN servers.
-
-  All packet desynchronization occurs locally on your device:
-  * Dual Operating Modes: System-wide VPN Mode (tun2socks) & Local Proxy Mode (127.0.0.1:1080)
-  * Dual-Protocol Proxy on Port 1080: SOCKS4, SOCKS5, and HTTP CONNECT tunneling
-  * Advanced DPI Desynchronization: Split, Disorder, Fake SNI, TTL hop manipulation
-  * Jetpack Compose Material 3 UI with dynamic colors and dark mode
-  * Quick Settings Tile for one-tap status bar toggling
-  * Zero analytics, zero ad trackers, zero telemetry
 
 RepoType: git
 Repo: https://github.com/samyak2403/NetVeil.git
@@ -31,11 +17,19 @@ Repo: https://github.com/samyak2403/NetVeil.git
 Builds:
   - versionName: 1.0.1
     versionCode: 2
-    commit: v1.0.1
+    commit: a9c96d6c3a1409c17d3685c986f04edcd8367f54
     subdir: app
     gradle:
       - yes
-    ndk: r26b
+    prebuild: sed -i -e '/foojay-resolver/d' ../settings.gradle.kts
+    scanignore:
+      - app/src/main/jniLibs/arm64-v8a/libhev-socks5-tunnel.so
+      - app/src/main/jniLibs/x86/libhev-socks5-tunnel.so
+      - app/src/main/jniLibs/armeabi-v7a/libhev-socks5-tunnel.so
+      - app/src/main/jniLibs/x86_64/libhev-socks5-tunnel.so
+    scandelete:
+      - app/release/native-debug-symbols.zip
+    ndk: r28c
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
