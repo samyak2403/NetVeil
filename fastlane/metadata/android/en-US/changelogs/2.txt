@@ -1,0 +1,6 @@
+NetVeil v1.0.1 (Build 2):
+- Fix release crash caused by R8 experimental optimization (IllegalAccessError on App Startup)
+- Harden ProGuard/R8 keep rules for Kotlin stdlib, coroutines, and AndroidX Lifecycle
+- Disable Google Play dependency metadata blobs for full F-Droid / IzzyOnDroid compliance
+- Dual Proxy Mode support (SOCKS4/5 and HTTP CONNECT) on port 1080
+- Complete Fastlane store metadata and localization

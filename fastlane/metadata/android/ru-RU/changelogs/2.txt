@@ -1,0 +1,6 @@
+NetVeil v1.0.1 (Сборка 2):
+- Исправлен сбой релизной сборки (IllegalAccessError в InitializationProvider из-за R8)
+- Добавлены правила защиты ProGuard/R8 для стандартной библиотеки Kotlin и AndroidX
+- Отключены метаданные зависимостей Google для полной совместимости с F-Droid и IzzyOnDroid
+- Поддержка двойного режима прокси (SOCKS4/5 и HTTP CONNECT) на порту 1080
+- Обновлены метаданные Fastlane и локализация

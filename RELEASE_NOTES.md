@@ -4,6 +4,23 @@ All notable changes, architectural milestones, and version releases of **NetVeil
 
 ---
 
+## [v1.0.1] - 2026-11-01 (Hotfix & Stability Release)
+
+> **Build `2` (`1.0.1`):** Resolves release build R8 optimization crashes, hardens class preservation rules, and enhances F-Droid / IzzyOnDroid compatibility.
+
+### 🐛 Bug Fixes & Stability
+- **Fixed Fatal Release Startup Crash**:
+  - Eliminated `java.lang.IllegalAccessError: Class kotlin.collections.d extended by class zj is inaccessible` at `androidx.startup.InitializationProvider` / `LifecycleRegistry.addObserver`.
+  - Replaced AGP 9.0+ experimental `optimization { packageScope = ... }` with standard release packaging (`isMinifyEnabled = false`) matching upstream ByeDPI's production architecture.
+- **R8 / ProGuard Keep Rules Hardened** ([`rules.keep`](file:///c:/Users/ADMIN/AndroidStudioProjects/NetVeil/app/src/main/keepRules/rules.keep)):
+  - Added explicit directives (`-dontrepackage`, `-dontflattenpackagehierarchy`, `-allowaccessmodification`) to protect Kotlin stdlib and AndroidX class accessibility.
+  - Added keep rules for Kotlin coroutines, AndroidX App Startup, and Lifecycle registries.
+- **IzzyOnDroid / F-Droid Compliance**:
+  - Configured `dependenciesInfo { includeInApk = false; includeInBundle = false }` to strip Google dependency tracking metadata blobs.
+  - Added Fastlane changelogs for build `2` (`fastlane/metadata/android/en-US/changelogs/2.txt`).
+
+---
+
 ## [v1.0.0] - 2026-11-01 (Initial Public Release)
 
 > **Initial production release of NetVeil:** A modern, high-performance, and privacy-respecting Android application for Deep Packet Inspection (DPI) circumvention, rebuilt from the ground up with Jetpack Compose and Material 3.
