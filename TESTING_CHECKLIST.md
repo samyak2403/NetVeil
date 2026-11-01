@@ -35,7 +35,9 @@ This document details the complete feature testing checklist for **NetVeil** (`c
 | **x86 (32-bit emulator)**| `buildCMakeDebug[x86]` | ✅ COMPILED | `libnetveil.so` + `libhev-socks5-tunnel.so` |
 | **x86_64 (64-bit emulator)**| `buildCMakeDebug[x86_64]` | ✅ COMPILED | `libnetveil.so` + `libhev-socks5-tunnel.so` |
 | **IzzyOnDroid / F-Droid Compliance**| `dependenciesInfo` | ✅ CONFIGURED | `includeInApk = false`, `includeInBundle = false` |
-| **APK Packaging** | `assembleDebug` | ✅ SUCCESS | `app-debug.apk` (21.1 MB) |
+| **Fastlane Metadata & Release Notes**| `fastlane/` + `RELEASE_NOTES.md` | ✅ VERIFIED | en-US, ru-RU locales, screenshots, changelogs |
+| **Debug APK Packaging** | `assembleDebug` | ✅ SUCCESS | `app-debug.apk` (21.1 MB) |
+| **Release APK Packaging** | `assembleRelease` | ✅ SUCCESS | `app-release-unsigned.apk` (14.3 MB, R8 crash fix) |
 
 ---
 

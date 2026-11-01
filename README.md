@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/samyak2403/NetVeil/releases"><img src="https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square" alt="Release"></a>
+  <a href="RELEASE_NOTES.md"><img src="https://img.shields.io/badge/Changelog-Release%20Notes-informational.svg?style=flat-square" alt="Release Notes"></a>
   <a href="https://developer.android.com/about/versions/nougat"><img src="https://img.shields.io/badge/Android-7.0%2B%20(API%2024%2B)-green.svg?style=flat-square" alt="Android Version"></a>
   <a href="https://developer.android.com/jetpack/compose"><img src="https://img.shields.io/badge/UI-Jetpack%20Compose%20%2F%20Material%203-purple.svg?style=flat-square" alt="Compose"></a>
   <a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Language-Kotlin%202.x%20%7C%20C99-orange.svg?style=flat-square" alt="Language"></a>
