@@ -1,0 +1,16 @@
+<p><b>NetVeil</b> is a modern, lightweight, privacy-respecting Android application designed to bypass Deep Packet Inspection (DPI) and censorship without routing traffic to external VPN servers.</p>
+
+<p>NetVeil runs a local bypass engine on your device and routes internet connections through local SOCKS5/HTTP proxies and tun2socks routing. Your data is not forwarded to third-party VPN providers and remains direct to destination.</p>
+
+<p><b>Key Features:</b></p>
+<ul>
+  <li><b>VPN & Local Proxy Modes:</b> Full-device redirection via Android VpnService, or standalone local SOCKS5 & HTTP CONNECT proxy on <code>127.0.0.1:1080</code> for specific apps.</li>
+  <li><b>Advanced DPI Desynchronization:</b> TCP packet splitting, out-of-order disordering, Fake SNI injection, TTL trickery, and HTTP header manipulations.</li>
+  <li><b>Modern UI:</b> Clean Jetpack Compose Material 3 interface with dynamic theming and light/dark mode support.</li>
+  <li><b>Raw CLI & Visual Editor:</b> Configure bypass parameters visually with categorized parameter cards or directly edit raw ByeDPI command-line flags.</li>
+  <li><b>Quick Settings Tile:</b> Toggle bypass protection with a single tap from your status bar.</li>
+  <li><b>100% Local & Private:</b> Zero analytics, zero ad trackers, zero external telemetry. No accounts required.</li>
+</ul>
+
+<p>Learn more and contribute on <a href="https://github.com/samyak2403/NetVeil">GitHub</a>.</p>
+

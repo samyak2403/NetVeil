@@ -1,0 +1,9 @@
+Initial release of NetVeil (v1.0.0):
+- Jetpack Compose Material 3 user interface
+- High-performance native ByeDPI C engine (ARMv7, ARM64, x86, x86_64)
+- Dual VPN Mode and Local Proxy Mode (SOCKS5 + HTTP CONNECT)
+- DPI bypass techniques: Split, Disorder, Fake SNI, TTL hop manipulation
+- Visual card parameter editor and raw command-line flag editor
+- Quick Settings tile support and persistent status drawer controls
+- Zero trackers, no remote proxy servers, privacy-first
+
