@@ -14,6 +14,7 @@ AutoName: NetVeil
 
 RepoType: git
 Repo: https://github.com/samyak2403/NetVeil.git
+Binaries: https://github.com/samyak2403/NetVeil/releases/download/v%v/app-release.apk
 
 Builds:
   - versionName: 1.0.1
@@ -22,7 +23,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    binary: https://github.com/samyak2403/NetVeil/releases/download/v%v/app-release.apk
     prebuild: sed -i -e '/foojay-resolver/d' ../settings.gradle.kts
     scanignore:
       - app/src/main/jniLibs/arm64-v8a/libhev-socks5-tunnel.so
