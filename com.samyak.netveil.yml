@@ -1,5 +1,6 @@
 Categories:
-  - Internet
+  - Connectivity
+  - VPN & Proxy
   - Security
 License: GPL-3.0-or-later
 AuthorName: Samyak Kamble
@@ -32,6 +33,6 @@ Builds:
     ndk: r28c
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags ^v\d+\.\d+\.\d+$
 CurrentVersion: 1.0.1
 CurrentVersionCode: 2
