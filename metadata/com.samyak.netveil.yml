@@ -22,6 +22,7 @@ Builds:
     subdir: app
     gradle:
       - yes
+    binary: https://github.com/samyak2403/NetVeil/releases/download/v%v/app-release.apk
     prebuild: sed -i -e '/foojay-resolver/d' ../settings.gradle.kts
     scanignore:
       - app/src/main/jniLibs/arm64-v8a/libhev-socks5-tunnel.so
@@ -31,6 +32,8 @@ Builds:
     scandelete:
       - app/release/native-debug-symbols.zip
     ndk: r28c
+
+AllowedAPKSigningKeys: 112e863c7f6d6f48ed050cb6d3f5fb11566d04eac9516dfd4f93333b3abd6c16
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v\d+\.\d+\.\d+$
