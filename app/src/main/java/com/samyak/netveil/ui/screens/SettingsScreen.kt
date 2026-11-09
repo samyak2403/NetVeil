@@ -62,7 +62,6 @@ fun SettingsScreen(
     var ipv6Enable by remember { mutableStateOf(preferences.ipv6Enable) }
     var enableCmdSettings by remember { mutableStateOf(preferences.enableCmdSettings) }
 
-    val isDark = isSystemInDarkTheme()
 
     Scaffold(
         topBar = {
@@ -215,12 +214,12 @@ fun SettingsScreen(
                     .clickable(enabled = !enableCmdSettings) { onNavigateToUiConfig() },
                 shape = RoundedCornerShape(22.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
+                    containerColor = MaterialTheme.colorScheme.surfaceContainer
                 ),
-                elevation = CardDefaults.cardElevation(defaultElevation = if (isDark) 2.dp else 1.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 border = BorderStroke(
                     width = 1.dp,
-                    color = if (isDark) MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.25f) else Color(0xFFE2E8F0)
+                    color = MaterialTheme.colorScheme.outlineVariant
                 )
             ) {
                 Row(
@@ -282,12 +281,12 @@ fun SettingsScreen(
                     .clickable(enabled = enableCmdSettings) { onNavigateToCmdConfig() },
                 shape = RoundedCornerShape(22.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
+                    containerColor = MaterialTheme.colorScheme.surfaceContainer
                 ),
-                elevation = CardDefaults.cardElevation(defaultElevation = if (isDark) 2.dp else 1.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                 border = BorderStroke(
                     width = 1.dp,
-                    color = if (isDark) MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.25f) else Color(0xFFE2E8F0)
+                    color = MaterialTheme.colorScheme.outlineVariant
                 )
             ) {
                 Row(

@@ -10,23 +10,23 @@ import androidx.compose.ui.graphics.Color
 private val DarkColorScheme = darkColorScheme(
     primary = VeilCoralPink,
     onPrimary = Color(0xFF111215),
-    primaryContainer = Color(0xFF381F23),
+    primaryContainer = Color(0xFF3A1E24),
     onPrimaryContainer = Color(0xFFFFDAD4),
     secondary = VeilPeach,
     onSecondary = Color(0xFF111215),
-    secondaryContainer = Color(0xFF2C1D21),
+    secondaryContainer = Color(0xFF301E23),
     onSecondaryContainer = Color(0xFFFFDCD7),
     tertiary = VeilRose,
     background = VeilDarkBg,
     onBackground = Color.White,
     surface = VeilDarkBg,
     onSurface = Color.White,
-    surfaceContainer = Color(0xFF17181E),
-    surfaceContainerHigh = Color(0xFF20222A),
-    surfaceContainerHighest = Color(0xFF282A34),
+    surfaceContainer = Color(0xFF1C1D24),
+    surfaceContainerHigh = Color(0xFF262834),
+    surfaceContainerHighest = Color(0xFF323544),
     onSurfaceVariant = VeilTextSubtle,
-    outline = Color(0xFF383A48),
-    outlineVariant = Color(0xFF242630)
+    outline = Color(0xFF404454),
+    outlineVariant = Color(0xFF2E313E)
 )
 
 private val LightColorScheme = lightColorScheme(

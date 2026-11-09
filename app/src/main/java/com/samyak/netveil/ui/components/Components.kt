@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.samyak.netveil.ui.theme.VeilDarkBg
 
 @Composable
 fun ScreenCard(
@@ -32,19 +33,18 @@ fun ScreenCard(
     subtitle: String? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
-    val isDark = isSystemInDarkTheme()
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
         shape = RoundedCornerShape(22.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
+            containerColor = MaterialTheme.colorScheme.surfaceContainer
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isDark) 2.dp else 1.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         border = BorderStroke(
             width = 1.dp,
-            color = if (isDark) MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.25f) else Color(0xFFE2E8F0)
+            color = MaterialTheme.colorScheme.outlineVariant
         )
     ) {
         Column(
@@ -108,7 +108,7 @@ fun SettingSwitchRow(
     subtitle: String? = null,
     enabled: Boolean = true
 ) {
-    val isDark = isSystemInDarkTheme()
+    val isDark = MaterialTheme.colorScheme.surface == VeilDarkBg || MaterialTheme.colorScheme.onSurface == Color.White
     Row(
         modifier = modifier
             .fillMaxWidth()
