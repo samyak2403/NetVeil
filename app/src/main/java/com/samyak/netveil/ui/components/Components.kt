@@ -108,6 +108,7 @@ fun SettingSwitchRow(
     subtitle: String? = null,
     enabled: Boolean = true
 ) {
+    val isDark = isSystemInDarkTheme()
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -153,21 +154,21 @@ fun SettingSwitchRow(
                         imageVector = Icons.Filled.Check,
                         contentDescription = null,
                         modifier = Modifier.size(SwitchDefaults.IconSize),
-                        tint = Color(0xFF10B981)
+                        tint = MaterialTheme.colorScheme.primary
                     )
                 }
             } else null,
             colors = SwitchDefaults.colors(
                 checkedThumbColor = Color.White,
-                checkedTrackColor = Color(0xFF10B981),
+                checkedTrackColor = MaterialTheme.colorScheme.primary,
                 checkedBorderColor = Color.Transparent,
-                checkedIconColor = Color(0xFF10B981),
-                uncheckedThumbColor = Color.White,
+                checkedIconColor = MaterialTheme.colorScheme.primary,
+                uncheckedThumbColor = if (isDark) Color(0xFF6E727E) else Color.White,
                 uncheckedTrackColor = MaterialTheme.colorScheme.surfaceContainerHighest,
                 uncheckedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.35f),
                 disabledCheckedThumbColor = Color.White.copy(alpha = 0.7f),
-                disabledCheckedTrackColor = Color(0xFF10B981).copy(alpha = 0.4f),
-                disabledCheckedIconColor = Color(0xFF10B981).copy(alpha = 0.4f),
+                disabledCheckedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.4f),
+                disabledCheckedIconColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.4f),
                 disabledUncheckedThumbColor = Color.White.copy(alpha = 0.7f),
                 disabledUncheckedTrackColor = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f),
                 disabledUncheckedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.15f)

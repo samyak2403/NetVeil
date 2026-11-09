@@ -25,7 +25,7 @@ class NetVeilPreferences(context: Context) {
 
     // General
     var appTheme: AppThemeMode
-        get() = AppThemeMode.fromName(prefs.getString(KEY_APP_THEME, "system"))
+        get() = AppThemeMode.fromName(prefs.getString(KEY_APP_THEME, "dark"))
         set(value) {
             prefs.edit().putString(KEY_APP_THEME, value.value).apply()
             _themeFlow.value = value
