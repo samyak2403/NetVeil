@@ -140,9 +140,9 @@ RepoType: git
 Repo: https://github.com/samyak2403/NetVeil.git
 
 Builds:
-  - versionName: 1.0.1
-    versionCode: 2
-    commit: a9c96d6c3a1409c17d3685c986f04edcd8367f54
+  - versionName: 1.0.2
+    versionCode: 3
+    commit: 40e801b8750aa81ed67b3e5283d85399527a3f69
     subdir: app
     gradle:
       - yes
@@ -158,19 +158,19 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v\d+\.\d+\.\d+$
-CurrentVersion: 1.0.1
-CurrentVersionCode: 2
+CurrentVersion: 1.0.2
+CurrentVersionCode: 3
 ```
 
-- **GitLab Pipeline [#3042382123](https://gitlab.com/samyak2403/fdroiddata/-/pipelines/3042382123)** (Branch: `New-NetVeil`, Commit: `9d440940a9528228e702d6f7991beaf9e241f249`):
-  - `fdroid build` (Job [17844622575](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622575)): **PASSED** (367s)
-  - `check apk` (Job [17844622583](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622583)): **PASSED** (165s)
-  - `fdroid lint` (Job [17844622578](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622578)): **PASSED** (174s)
-  - `fdroid rewritemeta` (Job [17844622579](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622579)): **PASSED** (200s)
-  - `schema validation` (Job [17844622581](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622581)): **PASSED** (132s)
-  - `tools check scripts` (Job [17844622580](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622580)): **PASSED** (160s)
-  - `check source code` (Job [17844622582](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622582)): **PASSED** (178s)
-  - `checkupdates` (Job [17844622576](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622576)): **PASSED** (181s)
-  - `git redirect` (Job [17844622577](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17844622577)): **PASSED** (136s)
+- **GitLab Pipeline [#3043263425](https://gitlab.com/samyak2403/fdroiddata/-/pipelines/3043263425)** (Branch: `New-NetVeil`, Commit: `183d705c463f1d4ab9d7c43642cd631b6b0f9e3c`):
+  - `fdroid build` (Job [17849874164](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874164)): **PASSED** (355s)
+  - `check apk` (Job [17849874172](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874172)): **PASSED** (160s)
+  - `fdroid lint` (Job [17849874167](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874167)): **PASSED** (165s)
+  - `fdroid rewritemeta` (Job [17849874168](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874168)): **PASSED** (176s)
+  - `schema validation` (Job [17849874170](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874170)): **PASSED** (126s)
+  - `tools check scripts` (Job [17849874169](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874169)): **PASSED** (157s)
+  - `check source code` (Job [17849874171](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874171)): **PASSED** (179s)
+  - `checkupdates` (Job [17849874165](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874165)): **PASSED** (177s)
+  - `git redirect` (Job [17849874166](https://gitlab.com/samyak2403/fdroiddata/-/jobs/17849874166)): **PASSED** (128s)
   - **Overall Pipeline Verdict: 100% GREEN (9/9 Jobs Succeeded)**.
-  - **Upstream Merge Request [fdroid/fdroiddata!55281](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/55281)**: Pipeline is completely green, merge conflicts: None. Ready for official merger.
+  - **Upstream Merge Request [fdroid/fdroiddata!55281](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/55281)**: Head pipeline is passed, merge conflicts: None. Ready for official merger.
