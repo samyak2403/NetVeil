@@ -21,6 +21,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -102,7 +103,7 @@ fun SettingsScreen(
                 .padding(innerPadding)
                 .verticalScroll(scrollState)
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // General Settings Card
             ScreenCard(
@@ -210,9 +211,9 @@ fun SettingsScreen(
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
                     .clickable(enabled = !enableCmdSettings) { onNavigateToUiConfig() },
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(22.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
                 ),
@@ -225,38 +226,50 @@ fun SettingsScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(18.dp),
+                        .padding(20.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.weight(1f).padding(end = 12.dp)
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(end = 12.dp)
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.DashboardCustomize,
-                            contentDescription = null,
-                            tint = if (!enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f),
-                            modifier = Modifier.size(28.dp).padding(end = 12.dp)
-                        )
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = if (!enableCmdSettings) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f) else MaterialTheme.colorScheme.surfaceContainerHigh,
+                            modifier = Modifier.padding(end = 14.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.DashboardCustomize,
+                                contentDescription = null,
+                                tint = if (!enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+                                modifier = Modifier
+                                    .padding(6.dp)
+                                    .size(20.dp)
+                            )
+                        }
                         Column {
                             Text(
                                 text = stringResource(R.string.ui_editor),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = if (!enableCmdSettings) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                                color = if (!enableCmdSettings) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                             )
+                            Spacer(modifier = Modifier.height(2.dp))
                             Text(
                                 text = "Card-based parameters for Split, Disorder, Fake SNI, TTL & protocols",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = if (!enableCmdSettings) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.35f)
+                                color = if (!enableCmdSettings) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.38f)
                             )
                         }
                     }
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                         contentDescription = null,
-                        tint = if (!enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                        tint = if (!enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+                        modifier = Modifier.size(20.dp)
                     )
                 }
             }
@@ -265,9 +278,9 @@ fun SettingsScreen(
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
                     .clickable(enabled = enableCmdSettings) { onNavigateToCmdConfig() },
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(22.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
                 ),
@@ -280,38 +293,50 @@ fun SettingsScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(18.dp),
+                        .padding(20.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.weight(1f).padding(end = 12.dp)
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(end = 12.dp)
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Terminal,
-                            contentDescription = null,
-                            tint = if (enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f),
-                            modifier = Modifier.size(28.dp).padding(end = 12.dp)
-                        )
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = if (enableCmdSettings) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f) else MaterialTheme.colorScheme.surfaceContainerHigh,
+                            modifier = Modifier.padding(end = 14.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Terminal,
+                                contentDescription = null,
+                                tint = if (enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+                                modifier = Modifier
+                                    .padding(6.dp)
+                                    .size(20.dp)
+                            )
+                        }
                         Column {
                             Text(
                                 text = stringResource(R.string.command_line_editor),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = if (enableCmdSettings) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                                color = if (enableCmdSettings) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                             )
+                            Spacer(modifier = Modifier.height(2.dp))
                             Text(
                                 text = "Raw command line arguments passed directly to NetVeil engine",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = if (enableCmdSettings) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.35f)
+                                color = if (enableCmdSettings) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.38f)
                             )
                         }
                     }
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                         contentDescription = null,
-                        tint = if (enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                        tint = if (enableCmdSettings) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+                        modifier = Modifier.size(20.dp)
                     )
                 }
             }
@@ -323,11 +348,30 @@ fun SettingsScreen(
                 subtitle = "App information and documentation"
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 6.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(stringResource(R.string.version), style = MaterialTheme.typography.bodyMedium)
-                    Text(BuildConfig.VERSION_NAME, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+                    Text(
+                        text = stringResource(R.string.version),
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.Medium
+                    )
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f),
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.2f))
+                    ) {
+                        Text(
+                            text = BuildConfig.VERSION_NAME,
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                        )
+                    }
                 }
 
                 HorizontalDivider(
@@ -338,19 +382,41 @@ fun SettingsScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
                         .clickable {
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/samyak2403/NetVeil/blob/v0.13/README.md"))
                             context.startActivity(intent)
                         }
-                        .padding(vertical = 10.dp),
+                        .padding(horizontal = 6.dp, vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.AutoMirrored.Filled.Help, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp).padding(end = 8.dp))
-                        Text(stringResource(R.string.byedpi_readme_link), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(end = 8.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.Help,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = stringResource(R.string.byedpi_readme_link),
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
                     }
-                    Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
                 }
 
                 HorizontalDivider(
@@ -361,19 +427,41 @@ fun SettingsScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
                         .clickable {
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/samyak2403/NetVeil"))
                             context.startActivity(intent)
                         }
-                        .padding(vertical = 10.dp),
+                        .padding(horizontal = 6.dp, vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Default.Code, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp).padding(end = 8.dp))
-                        Text(stringResource(R.string.source_code_link), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(end = 8.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Code,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = stringResource(R.string.source_code_link),
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
                     }
-                    Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.OpenInNew,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
                 }
             }
 
@@ -384,7 +472,8 @@ fun SettingsScreen(
     if (showResetDialog) {
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
-            title = { Text(stringResource(R.string.reset_settings)) },
+            shape = RoundedCornerShape(20.dp),
+            title = { Text(stringResource(R.string.reset_settings), fontWeight = FontWeight.SemiBold) },
             text = { Text("Are you sure you want to reset all NetVeil settings back to their default values?") },
             confirmButton = {
                 TextButton(
@@ -397,13 +486,19 @@ fun SettingsScreen(
                         enableCmdSettings = preferences.enableCmdSettings
                         showResetDialog = false
                         Toast.makeText(context, "Settings reset to default", Toast.LENGTH_SHORT).show()
-                    }
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                 ) {
-                    Text("Reset", color = MaterialTheme.colorScheme.error)
+                    Text("Reset", color = MaterialTheme.colorScheme.error, fontWeight = FontWeight.SemiBold)
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showResetDialog = false }) {
+                TextButton(
+                    onClick = { showResetDialog = false },
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                ) {
                     Text("Cancel")
                 }
             }

@@ -29,7 +29,7 @@ import com.samyak.netveil.model.AppStatus
 import com.samyak.netveil.service.ConnectionState
 import com.samyak.netveil.ui.components.ScreenCard
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun CmdConfigScreen(
     preferences: NetVeilPreferences,
@@ -81,7 +81,7 @@ fun CmdConfigScreen(
                 .padding(innerPadding)
                 .verticalScroll(scrollState)
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // Presets & Guide Card
             ScreenCard(
@@ -97,24 +97,32 @@ fun CmdConfigScreen(
                     "OOB Urgent Byte" to "--oob 1 -e a --proto http,https"
                 )
 
-                presets.forEach { (name, args) ->
-                    AssistChip(
-                        onClick = {
-                            if (!isRunning) {
-                                cmdText = args
-                                preferences.cmdArgs = args
-                                Toast.makeText(context, "Loaded preset: $name", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(context, R.string.settings_unavailable, Toast.LENGTH_SHORT).show()
-                            }
-                        },
-                        label = { Text(name, fontWeight = FontWeight.Medium) },
-                        leadingIcon = {
-                            Icon(Icons.Default.PlayArrow, contentDescription = null, modifier = Modifier.size(16.dp))
-                        },
-                        modifier = Modifier.padding(vertical = 2.dp),
-                        enabled = !isRunning
-                    )
+                FlowRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    presets.forEach { (name, args) ->
+                        AssistChip(
+                            onClick = {
+                                if (!isRunning) {
+                                    cmdText = args
+                                    preferences.cmdArgs = args
+                                    Toast.makeText(context, "Loaded preset: $name", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Toast.makeText(context, R.string.settings_unavailable, Toast.LENGTH_SHORT).show()
+                                }
+                            },
+                            label = { Text(name, fontWeight = FontWeight.Medium) },
+                            leadingIcon = {
+                                Icon(Icons.Default.PlayArrow, contentDescription = null, modifier = Modifier.size(16.dp))
+                            },
+                            shape = RoundedCornerShape(12.dp),
+                            enabled = !isRunning
+                        )
+                    }
                 }
             }
 
@@ -145,20 +153,23 @@ fun CmdConfigScreen(
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    TextButton(
+                    OutlinedButton(
                         onClick = {
                             if (!isRunning) {
                                 cmdText = ""
                                 preferences.cmdArgs = ""
                             }
                         },
-                        enabled = !isRunning && cmdText.isNotEmpty()
+                        enabled = !isRunning && cmdText.isNotEmpty(),
+                        shape = RoundedCornerShape(12.dp),
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                     ) {
                         Icon(Icons.Default.Clear, contentDescription = null, modifier = Modifier.size(18.dp))
                         Spacer(modifier = Modifier.width(6.dp))
-                        Text("Clear")
+                        Text("Clear", fontWeight = FontWeight.Medium)
                     }
                 }
             }

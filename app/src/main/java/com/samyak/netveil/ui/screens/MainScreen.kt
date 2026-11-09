@@ -30,7 +30,6 @@ import com.samyak.netveil.model.Mode
 import com.samyak.netveil.service.ConnectionState
 import com.samyak.netveil.ui.theme.BrandBlue
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
@@ -72,9 +71,6 @@ fun MainScreen(
         }
     }
 
-    val topAppBarBg = if (isDark) MaterialTheme.colorScheme.surfaceContainer else Color.White
-    val topAppBarContentColor = if (isDark) MaterialTheme.colorScheme.onSurface else Color.Black
-
     Scaffold(
         topBar = {
             Column {
@@ -82,29 +78,27 @@ fun MainScreen(
                     title = {
                         Text(
                             text = stringResource(R.string.app_name),
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 20.sp,
-                            color = topAppBarContentColor
+                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.titleLarge
                         )
                     },
                     actions = {
                         IconButton(onClick = onNavigateToSettings) {
                             Icon(
                                 imageVector = Icons.Default.Settings,
-                                contentDescription = stringResource(R.string.settings),
-                                tint = topAppBarContentColor
+                                contentDescription = stringResource(R.string.settings)
                             )
                         }
                         IconButton(onClick = { showMenu = true }) {
                             Icon(
                                 imageVector = Icons.Default.MoreVert,
-                                contentDescription = "More options",
-                                tint = topAppBarContentColor
+                                contentDescription = "More options"
                             )
                         }
                         DropdownMenu(
                             expanded = showMenu,
-                            onDismissRequest = { showMenu = false }
+                            onDismissRequest = { showMenu = false },
+                            shape = RoundedCornerShape(16.dp)
                         ) {
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.save_logs)) },
@@ -121,18 +115,12 @@ fun MainScreen(
                             )
                         }
                     },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = topAppBarBg,
-                        titleContentColor = topAppBarContentColor,
-                        actionIconContentColor = topAppBarContentColor
-                    )
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface)
                 )
-                if (isDark) {
-                    HorizontalDivider(
-                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f),
-                        thickness = 1.dp
-                    )
-                }
+                HorizontalDivider(
+                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f),
+                    thickness = 1.dp
+                )
             }
         },
         modifier = modifier
@@ -150,7 +138,6 @@ fun MainScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                //
                 OutlinedButton(
                     onClick = onToggleConnection,
                     shape = RoundedCornerShape(4.dp),

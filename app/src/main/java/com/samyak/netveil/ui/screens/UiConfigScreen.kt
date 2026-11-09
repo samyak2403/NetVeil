@@ -131,7 +131,7 @@ fun UiConfigScreen(
                 .padding(innerPadding)
                 .verticalScroll(scrollState)
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // CARD 1: Proxy Network Settings
             ScreenCard(
@@ -280,6 +280,11 @@ fun UiConfigScreen(
                 )
 
                 if (hostsMode == HostsMode.Blacklist) {
+                    HorizontalDivider(
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
+
                     SettingTextRow(
                         title = stringResource(R.string.byedpi_hosts_blacklist_setting),
                         value = hostsBlacklist,
@@ -291,6 +296,11 @@ fun UiConfigScreen(
                         enabled = !isRunning
                     )
                 } else if (hostsMode == HostsMode.Whitelist) {
+                    HorizontalDivider(
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
+
                     SettingTextRow(
                         title = stringResource(R.string.byedpi_hosts_whitelist_setting),
                         value = hostsWhitelist,
@@ -322,9 +332,9 @@ fun UiConfigScreen(
 
                 if (desyncEnabled) {
                     HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
 
                     SettingTextRow(
                         title = stringResource(R.string.byedpi_split_position_setting),
@@ -341,9 +351,9 @@ fun UiConfigScreen(
                     )
 
                     HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
 
                     SettingSwitchRow(
                         title = stringResource(R.string.byedpi_split_at_host_setting),
@@ -397,9 +407,9 @@ fun UiConfigScreen(
                         )
 
                         HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                            modifier = Modifier.padding(vertical = 4.dp),
+                            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                        )
 
                         SettingTextRow(
                             title = stringResource(R.string.sni_of_fake_packet),
@@ -413,9 +423,9 @@ fun UiConfigScreen(
                         )
 
                         HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                            modifier = Modifier.padding(vertical = 4.dp),
+                            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                        )
 
                         SettingTextRow(
                             title = stringResource(R.string.byedpi_fake_offset_setting),
@@ -432,10 +442,12 @@ fun UiConfigScreen(
                     }
 
                     if (isOob) {
-                        if (isFake) HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                        if (isFake) {
+                            HorizontalDivider(
+                                modifier = Modifier.padding(vertical = 4.dp),
+                                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                            )
+                        }
 
                         SettingTextRow(
                             title = stringResource(R.string.oob_data),
@@ -573,9 +585,9 @@ fun UiConfigScreen(
 
                 if (tlsRecordSplit) {
                     HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
 
                     SettingTextRow(
                         title = stringResource(R.string.byedpi_tlsrec_position_setting),
@@ -592,9 +604,9 @@ fun UiConfigScreen(
                     )
 
                     HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
-                )
+                        modifier = Modifier.padding(vertical = 4.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.35f)
+                    )
 
                     SettingSwitchRow(
                         title = stringResource(R.string.byedpi_tlsrec_at_sni_setting),
