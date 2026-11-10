@@ -134,10 +134,7 @@ fun MainScreen(
                 }
 
                 // Center logo: 6-node network mesh icon
-                NetworkMeshLogo(
-                    modifier = Modifier.size(32.dp),
-                    tint = Color.White
-                )
+
 
                 // Menu button (Hamburger)
                 Box {
